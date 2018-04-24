@@ -1,0 +1,85 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Location</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-item>
+      <button ion-button round block> Leaderboard </button>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Gaming</ion-label>
+      <ion-select [(ngModel)]="gaming">
+        <ion-option value="nes">NES</ion-option>
+      </ion-select>
+    </ion-item>
+
+
+    <ion-item>
+      <ion-label>Go</ion-label>
+      <ion-radio checked="true" value="go"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <div padding>
+  <ion-segment [(ngModel)]="user-settings">
+    <ion-segment-button value="session-status">
+      Session Status
+    </ion-segment-button>
+    <ion-segment-button value="privacy">
+      Privacy
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<div [ngSwitch]="user-settings">
+  <ion-list *ngSwitchCase="session-status">
+    <ion-item>
+      <ion-list>
+        <ion-item>
+          <button ion-button round block> Facebook </button>
+        </ion-item>
+
+        <ion-item>
+          <button ion-button round block> Instagram </button>
+        </ion-item>
+
+        <ion-item>
+          <button ion-button round block> Twitter </button>
+        </ion-item>
+      </ion-list>
+
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list *ngSwitchCase="'privacy'">
+    <ion-item>
+      <ion-list>
+        <ion-item>
+          <button ion-button round block> Privacy </button>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Privacy</ion-label>
+          <ion-select [(ngModel)]="gaming">
+            <ion-option value="nes">NES</ion-option>
+          </ion-select>
+        </ion-item>
+
+        <ion-item>
+          <ion-label>Privacy</ion-label>
+          <ion-radio checked="true" value="go"></ion-radio>
+        </ion-item>
+      </ion-list>
+    </ion-item>
+
+  </ion-list>
+</div>
+</ion-content>

@@ -1,0 +1,55 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Leaderboard</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+
+  <div padding>
+    <ion-segment [(ngModel)]="league">
+      <ion-segment-button value="MLB">
+        MLB
+      </ion-segment-button>
+      <ion-segment-button value="NL">
+        AL
+      </ion-segment-button>
+      <ion-segment-button value="AL">
+        NL
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+
+  <div [ngSwitch]="league">
+    <ion-list *ngSwitchCase="'MLB'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="img/thumbnail-puppy-1.jpg">
+        </ion-thumbnail>
+        <h2>Ruby</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'AL'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="img/thumbnail-kitten-1.jpg">
+        </ion-thumbnail>
+        <h2>Luna</h2>
+      </ion-item>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'NL'">
+      <ion-item>
+        <ion-thumbnail item-start>
+          <img src="img/thumbnail-kitten-1.jpg">
+        </ion-thumbnail>
+        <h2>Luna</h2>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
