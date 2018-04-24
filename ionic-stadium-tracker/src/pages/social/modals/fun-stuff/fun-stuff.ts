@@ -3,16 +3,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-leaderboard',
-  templateUrl: 'leaderboard.html',
+  selector: 'page-fun-stuff',
+  templateUrl: 'fun-stuff.html',
 })
-export class LeaderboardPage {
+export class FunStuffPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LeaderboardPage');
+    console.log('ionViewDidLoad FunStuffPage');
   }
 
 }
