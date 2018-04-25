@@ -7,8 +7,8 @@ import { SocialPage } from '../pages/social/social';
 import { ProfilePage } from '../pages/profile/profile';
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
-import { LocationPage } from '../pages/location/location';
-import { CheckInPage } from '../pages/location/check-in/check-in';
+import { LocationPage } from '../pages/home/location/location';
+import { CheckInPage } from '../pages/home/location/check-in/check-in';
 import { SettingsPage } from '../pages/profile/settings/settings';
 import { AddFriendPage } from '../pages/social/add-friend/add-friend';
 

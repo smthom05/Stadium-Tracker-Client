@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { ModalController } from 'ionic-angular';
+import { ModalController, NavController } from 'ionic-angular';
+import { AddFriendPage } from './add-friend/add-friend';
+
+// AddFriendPage: AddFriendPage;
 
 @Component({
   selector: 'page-social',
@@ -7,9 +10,12 @@ import { ModalController } from 'ionic-angular';
 })
 export class SocialPage {
   constructor(
-    public modalCtrl: ModalController
-  ) {
+    public modalCtrl: ModalController,
+    public navCtrl: NavController
+  ) {}
 
+  goToAddFriendPage() {
+    this.navCtrl.push(AddFriendPage);
   }
 
   presentModal(modalPage) {
