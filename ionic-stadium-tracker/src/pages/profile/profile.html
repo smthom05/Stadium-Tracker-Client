@@ -16,15 +16,15 @@
 
   <ion-list>
     <ion-item>
-      <button ion-button round block> Personal Stats </button>
+      <button ion-button round block (click)="presentModal('PersonalStatsPage')"> Personal Stats </button>
     </ion-item>
 
     <ion-item>
-      <button ion-button round block> History </button>
+      <button ion-button round block (click)="presentModal('HistoryPage')"> History </button>
     </ion-item>
 
     <ion-item>
-      <button ion-button round block> Ballpark Stats </button>
+      <button ion-button round block (click)="presentModal('LocationStatsPage')"> Ballpark Stats </button>
     </ion-item>
   </ion-list>
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavParams, ViewController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -7,12 +7,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'location-stats.html',
 })
 export class LocationStatsPage {
-
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(
+    public navParams: NavParams,
+    public viewCtrl: ViewController
+  ) {
+    
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LocationStatsPage');
   }
 
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
 }
