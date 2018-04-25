@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavParams, ViewController } from 'ionic-angular';
 
 @IonicPage()
 @Component({
@@ -7,12 +7,18 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'leaderboard.html',
 })
 export class LeaderboardPage {
+  constructor(
+    public navParams: NavParams,
+    public viewCtrl: ViewController
+  ) {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad LeaderboardPage');
   }
 
+  dismiss() {
+    this.viewCtrl.dismiss();
+  }
 }

@@ -9,15 +9,15 @@
 <ion-content>
   <ion-list>
     <ion-item>
-      <button ion-button round block> Leaderboard </button>
+      <button ion-button round block (click)="presentModal('LeaderboardPage')"> Leaderboard </button>
     </ion-item>
 
     <ion-item>
-      <button ion-button round block> Activity Feed </button>
+      <button ion-button round block (click)="presentModal('ActivityFeedPage')"> Activity Feed </button>
     </ion-item>
 
     <ion-item>
-      <button ion-button round block> Fun Stuff </button>
+      <button ion-button round block (click)="presentModal('FunStuffPage')"> Fun Stuff </button>
     </ion-item>
   </ion-list>
 
