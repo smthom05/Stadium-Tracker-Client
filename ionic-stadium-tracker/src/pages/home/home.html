@@ -2,17 +2,29 @@
   <ion-navbar>
     <ion-title>Home</ion-title>
   </ion-navbar>
+
+  <ion-toolbar>
+    <ion-searchbar [(ngModel)]="query" (ionInput)="searchPlace()"></ion-searchbar>
+  </ion-toolbar>
+
+  <ion-list>
+    <ion-item *ngFor="let place of places" (touchstart)="selectPlace(place)">{{place.description}}</ion-item>
+  </ion-list>
+
 </ion-header>
 
 <ion-content padding>
-  <ion-searchbar
-  [(ngModel)]="myInput"
-  [showCancelButton]="shouldShowCancel"
-  (ionInput)="onInput($event)"
-  (ionCancel)="onCancel($event)">
-</ion-searchbar>
+  <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+  </ion-searchbar>
 
-  <ion-img width="350" height="150" src="http://via.placeholder.com/350x150"></ion-img>
+
+  <div #pleaseConnect id="please-connect">
+    <p>Please connect to the Internet...</p>
+  </div>
+
+  <div #map id="map">
+    <ion-spinner></ion-spinner>
+  </div>
 
   <button ion-button round block (click)="goToLocationPage()"> Check In </button>
 
