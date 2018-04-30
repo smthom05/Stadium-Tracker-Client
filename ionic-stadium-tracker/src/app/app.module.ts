@@ -11,13 +11,8 @@ import { LocationPage } from '../pages/home/location/location';
 import { CheckInPage } from '../pages/home/location/check-in/check-in';
 import { SettingsPage } from '../pages/profile/settings/settings';
 import { AddFriendPage } from '../pages/social/add-friend/add-friend';
-
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import { ConnectivityServiceProvider } from '../providers/connectivity-service/connectivity-service';
-import { GoogleMapsProvider } from '../providers/google-maps/google-maps';
-import { Network } from '@ionic-native/network';
 import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
@@ -52,9 +47,6 @@ import { Geolocation } from '@ionic-native/geolocation';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    ConnectivityServiceProvider,
-    GoogleMapsProvider,
-    Network,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
 

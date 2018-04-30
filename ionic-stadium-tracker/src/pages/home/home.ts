@@ -1,116 +1,60 @@
 import { Component, AfterViewInit, ViewChild, NgZone, ElementRef } from '@angular/core';
 import { NavController, Platform, ViewController } from 'ionic-angular';
 import { LocationPage } from './location/location';
-// import L from 'leaflet';
-import { Geolocation } from '@ionic-native/geolocation';
-import { GoogleMaps } from '../../providers/google-maps/google-maps';
+import leaflet from 'leaflet';
 
 
 // LocationPage: LocationPage;
+let corner1 = leaflet.latLng(23.500, -125.230),
+corner2 = leaflet.latLng(49.923,-67.661),
+bounds = leaflet.latLngBounds(corner1, corner2);
+
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 export class HomePage {
-
-  @ViewChild('map') mapElement: ElementRef;
-  @ViewChild('pleaseConnect') pleaseConnect: ElementRef;
-
-  latitude: number;
-  longitude: number;
-  autocompleteService: any;
-  placesService: any;
-  query: string = '';
-  places: any = [];
-  searchDisabled: boolean;
-  saveDisabled: boolean;
-  location: any;
-
-  constructor(public navCtrl: NavController, public zone: NgZone, public maps: GoogleMaps, public platform: Platform, public geolocation: Geolocation, public viewCtrl: ViewController) {
-    this.searchDisabled = true;
-    this.saveDisabled = true;
-  }
-
-  ionViewDidLoad(): void {
-
-    let mapLoaded = this.maps.init(this.mapElement.nativeElement, this.pleaseConnect.nativeElement).then(() => {
-
-      this.autocompleteService = new google.maps.places.AutocompleteService();
-      this.placesService = new google.maps.places.PlacesService(this.maps.map);
-      this.searchDisabled = false;
-
-    });
+  @ViewChild('map') mapContainer: ElementRef;
+  map: any;
+  constructor(public navCtrl: NavController) {
 
   }
 
-  selectPlace(place) {
+  onInput(event){
+  // TODO: Add axios get call for searched data
+ }
 
-    this.places = [];
+  ionViewDidLoad() {
+    this.loadmap();
+  }
 
-    let location = {
-      lat: null,
-      lng: null,
-      name: place.name
+  loadmap() {
+    this.map = leaflet.map("map").fitBounds(bounds);
+    leaflet.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attributions: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+      maxZoom: 18
+    }).addTo(this.map);
+    this.map
+    // .locate({
+    //   setView: true,
+    //   maxZoom: 10
+    // })
+    .on('locationfound', (e) => {
+      let markerGroup = leaflet.featureGroup();
+      let marker: any = leaflet.marker([e.latitude, e.longitude]).on('click', () => {
+        alert('Marker clicked');
+      })
+      markerGroup.addLayer(marker);
+      this.map.addLayer(markerGroup);
+      }).on('locationerror', (err) => {
+        alert(err.message);
+    })
+
+  }
+
+  goToLocationPage() {
+      this.navCtrl.push(LocationPage);
     };
 
-    this.placesService.getDetails({ placeId: place.place_id }, (details) => {
-
-      this.zone.run(() => {
-
-        location.name = details.name;
-        location.lat = details.geometry.location.lat();
-        location.lng = details.geometry.location.lng();
-        this.saveDisabled = false;
-
-        this.maps.map.setCenter({ lat: location.lat, lng: location.lng });
-
-        this.location = location;
-
-      });
-
-    });
-
-  }
-
-  searchPlace() {
-
-    this.saveDisabled = true;
-
-    if (this.query.length > 0 && !this.searchDisabled) {
-
-      let config = {
-        types: ['geocode'],
-        input: this.query
-      }
-
-      this.autocompleteService.getPlacePredictions(config, (predictions, status) => {
-
-        if (status == google.maps.places.PlacesServiceStatus.OK && predictions) {
-
-          this.places = [];
-
-          predictions.forEach((prediction) => {
-            this.places.push(prediction);
-          });
-        }
-
-      });
-
-    } else {
-      this.places = [];
-    }
-
-  }
-
-  save() {
-    this.viewCtrl.dismiss(this.location);
-  }
-
-  close() {
-    this.viewCtrl.dismiss();
-  }
-  goToLocationPage() {
-    this.navCtrl.push(LocationPage);
-  };
 }
