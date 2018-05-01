@@ -11,10 +11,9 @@ import { LocationPage } from '../pages/home/location/location';
 import { CheckInPage } from '../pages/home/location/check-in/check-in';
 import { SettingsPage } from '../pages/profile/settings/settings';
 import { AddFriendPage } from '../pages/social/add-friend/add-friend';
-
-
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Geolocation } from '@ionic-native/geolocation';
 
 @NgModule({
   declarations: [
@@ -47,7 +46,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
+
   ]
 })
 export class AppModule {}
