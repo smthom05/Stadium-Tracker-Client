@@ -2,6 +2,7 @@ import { Component, AfterViewInit, ViewChild, NgZone, ElementRef } from '@angula
 import { NavController, Platform, ViewController } from 'ionic-angular';
 import { LocationPage } from './location/location';
 import leaflet from 'leaflet';
+import axios from 'axios';
 
 
 // LocationPage: LocationPage;
@@ -54,7 +55,11 @@ export class HomePage {
   }
 
   goToLocationPage() {
-      this.navCtrl.push(LocationPage);
+      axios.get("http://localhost:3000/locations/5ae7d815a192988ed70d0b22")
+        .then(res => {
+          console.log(res);
+          this.navCtrl.push(LocationPage, res.data);
+        })
     };
 
 }

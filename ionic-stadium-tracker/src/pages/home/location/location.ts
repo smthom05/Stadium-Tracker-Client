@@ -9,11 +9,24 @@ import { CheckInPage } from './check-in/check-in';
 })
 export class LocationPage {
 
+locationPhoto:string;
+name:string;
+nextEvent:any;
+facts:any;
+recommendations: any;
+
+
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.locationPhoto = navParams.get('locationPhoto');
+    this.name = navParams.get('name');
+    this.nextEvent = navParams.get('nextEvent');
+    this.facts = navParams.get('facts');
+    this.recommendations = navParams.get('recommendations');
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LocationPage');
+    console.log(this.navParams);
   }
 
   goToCheckInPage() {

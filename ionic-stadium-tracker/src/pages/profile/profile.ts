@@ -1,7 +1,7 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { ModalController, NavController } from 'ionic-angular';
 import { SettingsPage } from './settings/settings';
-import Axios from 'axios';
+import axios from 'axios';
 
 
 let currentUser = {
@@ -59,9 +59,9 @@ export class ProfilePage implements AfterViewInit {
 
   // TODO: Rewrite as axios get to database
   getLocationImage(locationId) {
-    Axios.get("/" + locationId)
-      .then(res => {
-        console.log(res.data);
-      })
+    // axios.get("/" + locationId)
+    //   .then(res => {
+    //     console.log(res.data);
+    //   })
   }
 };
