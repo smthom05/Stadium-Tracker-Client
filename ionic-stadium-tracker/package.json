@@ -45,7 +45,6 @@
   "description": "An Ionic project",
   "cordova": {
     "plugins": {
-      "cordova-plugin-network-information": {},
       "cordova-plugin-geolocation": {}
     }
   }
