@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Location</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+
+  <ion-img class="locationPhoto" width="350" height="150" src={{locationPhoto}}></ion-img>
+
+
+  <button ion-button round block (click)="goToCheckInPage()"> Check In </button>
+
+  <ion-card>
+
+    <ion-card-header>
+      {{name}}
+    </ion-card-header>
+
+    <ion-card-content>
+      {{facts}}
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+
+    <ion-card-header>
+      Next Game
+    </ion-card-header>
+
+    <ion-card-content>
+      <div>
+        Opponent: {{nextEvent.opponentName}}
+      </div>
+      <div>
+        Date: {{date}}
+      </div>
+      <button ion-button round block>
+        <a href={{nextEvent.ticketLink}}>Get Tickets</a>
+      </button>
+    </ion-card-content>
+
+  </ion-card>
+
+  <ion-card>
+
+    <ion-card-header>
+      Experience Recommendation
+    </ion-card-header>
+
+    <ion-card-content>
+      Recommendation Info
+    </ion-card-content>
+
+  </ion-card>
+</ion-content>
