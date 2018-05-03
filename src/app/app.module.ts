@@ -11,10 +11,12 @@ import { LocationPage } from '../pages/home/location/location';
 import { CheckInPage } from '../pages/home/location/check-in/check-in';
 import { SettingsPage } from '../pages/profile/settings/settings';
 import { AddFriendPage } from '../pages/social/add-friend/add-friend';
+import { LoginPage } from '../pages/login/login';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
 import { Passport } from 'passport';
+import { LoginserviceProvider } from '../providers/loginservice/loginservice';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,8 @@ import { Passport } from 'passport';
     LocationPage,
     CheckInPage,
     SettingsPage,
-    AddFriendPage
+    AddFriendPage,
+    LoginPage
   ],
   imports: [
     BrowserModule,
@@ -42,14 +45,16 @@ import { Passport } from 'passport';
     LocationPage,
     CheckInPage,
     SettingsPage,
-    AddFriendPage
+    AddFriendPage,
+    LoginPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     Geolocation,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    LoginserviceProvider
 
   ]
 })
