@@ -55,7 +55,7 @@ export class HomePage {
   }
 
   goToLocationPage() {
-      axios.get("http://localhost:3000/locations/5ae7d815a192988ed70d0b22")
+      axios.get("http://localhost:3000/locations/5aea650ce0e5a69ac55a19af")
         .then(res => {
           console.log(res);
           this.navCtrl.push(LocationPage, res.data);

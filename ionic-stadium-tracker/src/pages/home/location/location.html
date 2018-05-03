@@ -7,7 +7,7 @@
 
 <ion-content padding>
 
-  <ion-img width="350" height="150" src={{locationPhoto}}></ion-img>
+  <ion-img class="locationPhoto" width="350" height="150" src={{locationPhoto}}></ion-img>
 
 
   <button ion-button round block (click)="goToCheckInPage()"> Check In </button>
@@ -27,11 +27,15 @@
   <ion-card>
 
     <ion-card-header>
-      Upcoming Events
+      Next Game
     </ion-card-header>
 
     <ion-card-content>
-      Event Details
+      Opponent: {{nextEvent.opponentName}}
+      <br>
+      Get Tickets: {{nextEvent.ticketLink}}
+      <br>
+      Date: {{nextEvent.date}}
     </ion-card-content>
 
   </ion-card>

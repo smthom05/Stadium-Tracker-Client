@@ -14,6 +14,7 @@ import { AddFriendPage } from '../pages/social/add-friend/add-friend';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Geolocation } from '@ionic-native/geolocation';
+import { Passport } from 'passport';
 
 @NgModule({
   declarations: [
