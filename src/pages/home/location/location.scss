@@ -1,0 +1,17 @@
+page-location {
+  button {
+    a {
+      display: block;
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .locationPhoto {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
