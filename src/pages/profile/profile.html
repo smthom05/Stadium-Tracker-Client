@@ -8,23 +8,31 @@
 
 <ion-content padding>
 
-  <ion-img src={{favoriteLocation}}></ion-img>
+  <!-- <div ngIf='loginservice.isLoggedIn; else loginTemplate'> -->
+  <div>
+    <ion-img src={{favoriteLocation}}></ion-img>
 
-   <ion-fab top right edge>
-     <button ion-fab (click)="goToSettingsPage()"><ion-icon name="settings"></ion-icon></button>
-   </ion-fab>
+    <ion-fab top right edge>
+      <button ion-fab (click)="goToSettingsPage()"><ion-icon name="settings"></ion-icon></button>
+    </ion-fab>
 
-  <ion-list>
-    <ion-item>
-      <button ion-button round block (click)="presentModal('PersonalStatsPage')"> Personal Stats </button>
-    </ion-item>
+    <ion-list>
+      <ion-item>
+        <button ion-button round block (click)="presentModal('PersonalStatsPage')"> Personal Stats </button>
+      </ion-item>
 
-    <ion-item>
-      <button ion-button round block (click)="presentModal('HistoryPage')"> History </button>
-    </ion-item>
+      <ion-item>
+        <button ion-button round block (click)="presentModal('HistoryPage')"> History </button>
+      </ion-item>
 
-    <ion-item>
-      <button ion-button round block (click)="presentModal('LocationStatsPage')"> Ballpark Stats </button>
-    </ion-item>
-  </ion-list>
+      <ion-item>
+        <button ion-button round block (click)="presentModal('LocationStatsPage')"> Ballpark Stats </button>
+      </ion-item>
+    </ion-list>
+    <button ion-button round block (click)="goToLoginPage()"> Please Login </button>
+  </div>
+
+  <!-- <ng-template #loginTemplate>
+
+  </ng-template> -->
 </ion-content>

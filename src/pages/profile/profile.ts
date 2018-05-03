@@ -2,50 +2,41 @@ import { Component, AfterViewInit } from '@angular/core';
 import { ModalController, NavController } from 'ionic-angular';
 import { SettingsPage } from './settings/settings';
 import axios from 'axios';
+import { LoginserviceProvider } from '../../providers/loginservice/loginservice';
+import { LoginPage } from '../login/login';
 
 
 let currentUser = {
-  firstName: 'Michael',
-  lastName: 'Bolens',
-  fullName: this.firstName + this.lastName,
-  favoriteTeam: 1,
-  gameHistory: [
-    {
-      location: 'Milwaukee',
-      teams: [
-        {
-          name: 'Brewers',
-          score: 8
-        },
-        {
-          name: 'Rockies',
-          score: 3
-        }
-      ],
-      moreInfo: 'I liked it',
-    }
-  ],
-  settings: {
-    incognito: false
-  },
-  friends: [2],
-  userImage: 'http://via.placeholder.com/150x150'
+  firstName: 'Scott',
+  lastName: 'Thomas',
+  fullName: 'Scott Thomas',
+  userImage: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50',
+  __v: 0,
+  friends: [],
+  settings: [],
+  gameHistory: []
 }
 
 // SettingsPage: SettingsPage;
 
 @Component({
   selector: 'page-profile',
-  templateUrl: 'profile.html'
+  templateUrl: 'profile.html',
+  providers: [LoginserviceProvider]
 })
 export class ProfilePage implements AfterViewInit {
   constructor(
     public modalCtrl: ModalController,
-    public navCtrl: NavController
+    public navCtrl: NavController,
+    public loginservice: LoginserviceProvider
   ) { };
 
-  ngAfterViewInit(){
-    this.getLocationImage(currentUser.favoriteTeam)
+  ngAfterViewInit() {
+    this.getLocationImage(currentUser.favoriteTeam);
+
+    // Generate example user
+    // this.addFakeUser(currentUser);
+
   }
 
   goToSettingsPage() {
@@ -63,5 +54,18 @@ export class ProfilePage implements AfterViewInit {
     //   .then(res => {
     //     console.log(res.data);
     //   })
+  }
+  goToLoginPage() {
+    this.navCtrl.push(LoginPage);
+  };
+
+  addFakeUser(user) {
+  axios.post("http://localhost:3000/users", user)
+    .then(res => {
+      return res.data;
+    })
+    .catch(err => {
+      console.log(err.message, err.stack);
+    })
   }
 };
