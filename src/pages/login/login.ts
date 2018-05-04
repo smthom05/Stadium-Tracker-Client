@@ -33,4 +33,6 @@ export class LoginPage {
         console.log(err.stack);
       });
   }
+  loginFacebook() {}
+  loginTwitter() {}
 }

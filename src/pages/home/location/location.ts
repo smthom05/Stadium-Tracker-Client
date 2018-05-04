@@ -12,6 +12,7 @@ export class LocationPage {
 
 locationPhoto:string;
 name:string;
+homeTeam:string;
 nextEvent:any;
 facts:any;
 recommendations:any;
@@ -22,6 +23,7 @@ date:string;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.locationPhoto = navParams.get('locationPhoto');
     this.name = navParams.get('name');
+    this.homeTeam = navParams.get('team');
     this.nextEvent = navParams.get('nextEvent');
     this.facts = navParams.get('facts');
     this.recommendations = navParams.get('recommendations');

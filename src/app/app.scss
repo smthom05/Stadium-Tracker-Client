@@ -1,1 +1,26 @@
 @import '../../node_modules/leaflet/dist/leaflet';
+
+.toolbar-background {
+  // background: rgb(0, 190, 180);
+}
+
+.toolbar-title {
+  // text-align: center;
+}
+
+.text {
+  &--centered {
+    text-align: center;
+  }
+  &--bold {
+    font-weight: 600;
+  }
+}
+
+.card-header {
+  font-weight: 800;
+}
+
+.logo {
+  font-family: 'Audiowide', cursive;
+}

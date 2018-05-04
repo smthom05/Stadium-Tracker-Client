@@ -11,7 +11,22 @@
 <ion-content padding>
 
   <ion-item>
-    <button ion-button round block (click)="loginGoogle()"> Sign In With Google </button>
+    <button ion-button round block class="button--login" (click)="loginGoogle()">
+      <span class="button--text">Sign in with Google</span>
+      <ion-icon name="logo-google" class="button--icon"></ion-icon>
+    </button>
+  </ion-item>
+  <ion-item>
+    <button ion-button round block disabled class="button--login" (click)="loginFacebook()">
+      <span class="button--text">Sign in with Facebook</span>
+      <ion-icon name="logo-facebook" class="button--icon"></ion-icon>
+    </button>
+  </ion-item>
+  <ion-item>
+    <button ion-button round block disabled class="button--login" (click)="loginTwitter()">
+      <span class="button--text">Sign in with Twitter</span>
+      <ion-icon name="logo-twitter" class="button--icon"></ion-icon>
+    </button>
   </ion-item>
 
 </ion-content>

@@ -32,7 +32,7 @@ export class ProfilePage implements AfterViewInit {
   ) { };
 
   ngAfterViewInit() {
-    this.getLocationImage(currentUser.favoriteTeam);
+    // this.getLocationImage(currentUser.favoriteTeam);
 
     // Generate example user
     // this.addFakeUser(currentUser);

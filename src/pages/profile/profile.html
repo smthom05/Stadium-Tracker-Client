@@ -1,8 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Profile
-    </ion-title>
+    <ion-title class="logo text--centered">Profile</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -12,7 +10,7 @@
   <div>
     <ion-img src={{favoriteLocation}}></ion-img>
 
-    <ion-fab top right edge>
+    <ion-fab bottom right>
       <button ion-fab (click)="goToSettingsPage()"><ion-icon name="settings"></ion-icon></button>
     </ion-fab>
 
