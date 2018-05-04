@@ -1,18 +1,21 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Location</ion-title>
+    <ion-title class="logo">{{name}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
-  <ion-img class="locationPhoto" width="350" height="150" src={{locationPhoto}}></ion-img>
+  <ion-img class="locationPhoto" src={{locationPhoto}}></ion-img>
 
+  <ion-card padding>
+    <button ion-button round block (click)="goToCheckInPage()">
+      Check In
+    </button>
+  </ion-card>
 
-  <button ion-button round block (click)="goToCheckInPage()"> Check In </button>
-
-  <ion-card>
+  <ion-card padding>
 
     <ion-card-header>
       {{name}}
@@ -31,11 +34,11 @@
     </ion-card-header>
 
     <ion-card-content>
-      <div>
-        Opponent: {{nextEvent.opponentName}}
+      <div class="text--centered">
+        <span class="text--bold">{{homeTeam}}</span> vs <span class="text--bold">{{nextEvent.opponentName}}</span>
       </div>
-      <div>
-        Date: {{date}}
+      <div class="text--centered">
+        {{date}}
       </div>
       <button ion-button round block>
         <a href={{nextEvent.ticketLink}}>Get Tickets</a>
@@ -44,15 +47,23 @@
 
   </ion-card>
 
-  <ion-card>
+  <ion-card padding>
 
-    <ion-card-header>
-      Experience Recommendation
+    <ion-card-header item-divider>
+      Things to try
     </ion-card-header>
 
-    <ion-card-content>
-      Recommendation Info
-    </ion-card-content>
+    <ion-list>
+      <ion-item>
+        Thing #1
+      </ion-item>
+      <ion-item>
+        Thing #2
+      </ion-item>
+      <ion-item>
+        Thing #3
+      </ion-item>
+    </ion-list>
 
   </ion-card>
 </ion-content>
