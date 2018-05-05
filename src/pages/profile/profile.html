@@ -7,8 +7,10 @@
 <ion-content padding>
 
   <!-- <div ngIf='loginservice.isLoggedIn; else loginTemplate'> -->
+  <div id="userName">{{fullName}}</div>
+
   <div>
-    <ion-img src={{favoriteLocation}}></ion-img>
+    <ion-img id="userImage" src={{userImage}}></ion-img>
 
     <ion-fab bottom right>
       <button ion-fab (click)="goToSettingsPage()"><ion-icon name="settings"></ion-icon></button>

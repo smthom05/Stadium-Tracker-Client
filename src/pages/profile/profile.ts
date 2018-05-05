@@ -1,16 +1,17 @@
 import { Component, AfterViewInit } from '@angular/core';
-import { ModalController, NavController } from 'ionic-angular';
+import { ModalController, NavController, NavParams } from 'ionic-angular';
 import { SettingsPage } from './settings/settings';
 import axios from 'axios';
 import { LoginserviceProvider } from '../../providers/loginservice/loginservice';
 import { LoginPage } from '../login/login';
 
 
+
 let currentUser = {
-  firstName: 'Scott',
-  lastName: 'Thomas',
-  fullName: 'Scott Thomas',
-  userImage: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50',
+  firstName: '',
+  lastName: '',
+  fullName: '',
+  userImage: '',
   __v: 0,
   friends: [],
   settings: {
@@ -34,7 +35,6 @@ let currentUser = {
       moreInfo: 'Drank beer, ate food'
     }
   ],
-
 }
 
 // SettingsPage: SettingsPage;
@@ -44,19 +44,35 @@ let currentUser = {
   templateUrl: 'profile.html',
   providers: [LoginserviceProvider]
 })
-export class ProfilePage implements AfterViewInit {
+export class ProfilePage {
+firstName:string;
+lastName:string;
+fullName:string;
+userImage:string;
+incognito:boolean;
+
   constructor(
     public modalCtrl: ModalController,
+    public navParams: NavParams,
     public navCtrl: NavController,
     public loginservice: LoginserviceProvider
-  ) { };
+  ) {
+    this.firstName = navParams.get('firstName');
+    this.lastName = navParams.get('lastName');
+    this.fullName = navParams.get('fullName');
+    this.userImage = navParams.get('userImage');
+  };
 
   ngAfterViewInit() {
     // this.getLocationImage(currentUser.favoriteTeam);
 
     // Generate example user
-    // this.addFakeUser(currentUser);
 
+  }
+
+  ionViewDidLoad() {
+    // this.getUsers(currentUser);
+    console.log('our navparams', this.navParams);
   }
 
   goToSettingsPage() {
