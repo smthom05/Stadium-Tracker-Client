@@ -15,26 +15,29 @@
 
   <div padding>
     <ion-segment [(ngModel)]="league">
-      <ion-segment-button value="MLB">
-        MLB
+      <ion-segment-button value="All">
+        All
       </ion-segment-button>
-      <ion-segment-button value="NL">
+      <!-- <ion-segment-button value="NL">
         AL
       </ion-segment-button>
       <ion-segment-button value="AL">
         NL
-      </ion-segment-button>
+      </ion-segment-button> -->
     </ion-segment>
   </div>
 
   <div [ngSwitch]="league">
-    <ion-list *ngSwitchCase="'MLB'">
-      <ion-item>
-        <ion-thumbnail item-start>
-          <img src="https://upload.wikimedia.org/wikipedia/en/a/a6/Major_League_Baseball_logo.svg">
-        </ion-thumbnail>
-        <h2>MLB</h2>
-      </ion-item>
+    <ion-list *ngSwitchCase="'All'">
+      <ion-card *ngFor='let rank of ranks; index as i'>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src={{rank.photo}}>
+          </ion-avatar>
+          <h2 class="text--right">{{rank.name}}</h2>
+          <p class="text--right">{{rank.totalGames}}</p>
+        </ion-item>
+      </ion-card>
     </ion-list>
 
     <ion-list *ngSwitchCase="'AL'">
