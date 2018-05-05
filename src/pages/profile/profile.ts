@@ -35,8 +35,6 @@ let currentUser = {
       moreInfo: 'Drank beer, ate food'
     }
   ],
-
-  gameHistory: []
 }
 
 // SettingsPage: SettingsPage;
