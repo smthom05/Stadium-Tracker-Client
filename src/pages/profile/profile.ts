@@ -13,8 +13,28 @@ let currentUser = {
   userImage: 'https://lh3.googleusercontent.com/-XdUIqdMkCWA/AAAAAAAAAAI/AAAAAAAAAAA/4252rscbv5M/photo.jpg?sz=50',
   __v: 0,
   friends: [],
-  settings: [],
-  gameHistory: []
+  settings: {
+    incognito: false
+  },
+  gameHistory: [
+    {
+      location: 'Miller Park',
+      photo: 'https://chairnerd.global.ssl.fastly.net/images/performers-landscape/milwaukee-brewers-7c4ba0/15/huge.jpg',
+      teams: [
+        {
+          name: 'Brewers',
+          score: 5
+        },
+        {
+          name: 'Rockies',
+          score: 2
+        }
+      ],
+      date: 'Sometime this season',
+      moreInfo: 'Drank beer, ate food'
+    }
+  ],
+
 }
 
 // SettingsPage: SettingsPage;
@@ -57,15 +77,15 @@ export class ProfilePage implements AfterViewInit {
   }
   goToLoginPage() {
     this.navCtrl.push(LoginPage);
-  };
+  }
 
   addFakeUser(user) {
-  axios.post("http://localhost:3000/users", user)
-    .then(res => {
-      return res.data;
-    })
-    .catch(err => {
-      console.log(err.message, err.stack);
-    })
+    axios.post("http://localhost:3000/users", user)
+      .then(res => {
+        return res.data;
+      })
+      .catch(err => {
+        console.log(err.message, err.stack);
+      })
   }
 };

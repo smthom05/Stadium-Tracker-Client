@@ -14,26 +14,28 @@
 <ion-content padding>
 
   <ion-list>
-    <ion-item>
+    <ion-item *ngFor='let activity of activities; index as i'>
       <ion-card>
+        <ion-item>
+          <ion-avatar item-start>
+            <img src={{activity.photo}}>
+          </ion-avatar>
+          <h2>{{activity.name}} @ {{activity.game.location}}</h2>
+          <p>{{activity.game.date}}</p>
+        </ion-item>
+
+        <img src={{activity.game.photo}}>
+
         <ion-card-content>
-          Activity
+          <p class="text--centered">
+            <span class="text--bold">{{activity.game.teams[0].name}}</span> vs. <span class="text--bold">{{activity.game.teams[1].name}}</span>
+          </p>
+          <br />
+          <p>{{activity.game.moreInfo}}</p>
         </ion-card-content>
+
       </ion-card>
     </ion-item>
-    <ion-item>
-      <ion-card>
-        <ion-card-content>
-          Activity
-        </ion-card-content>
-      </ion-card>
-    </ion-item>
-    <ion-item>
-      <ion-card>
-        <ion-card-content>
-          Activity
-        </ion-card-content>
-      </ion-card>
-    </ion-item>
+
   </ion-list>
 </ion-content>
