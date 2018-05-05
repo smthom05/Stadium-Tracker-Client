@@ -19,8 +19,23 @@ export class LoginPage {
     console.log('ionViewDidLoad LoginPage');
   }
 
+  // loginGoogle() {
+  //   axios.get("http://localhost:3000/auth/google")
+  //     .then(res => {
+  //       console.log(res);
+  //       this.loginservice.login();
+  //       this.loginservice.userProfile = res.data;
+  //       console.log("login service log", this.loginservice);
+  //       this.navCtrl.push(ProfilePage, res.data);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err.message);
+  //       console.log(err.stack);
+  //     });
+  // }
+
   loginGoogle() {
-    axios.get("http://localhost:3000/auth/google")
+    axios.get("http://localhost:3000/users/5aedf8a81bcf9e07d46c0687")
       .then(res => {
         console.log(res);
         this.loginservice.login();
@@ -33,6 +48,7 @@ export class LoginPage {
         console.log(err.stack);
       });
   }
+
   loginFacebook() {}
   loginTwitter() {}
 }
