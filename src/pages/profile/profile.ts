@@ -17,7 +17,6 @@ let currentUser = {
   settings: {
     incognito: false
   },
-<<<<<<< Updated upstream
   gameHistory: [
     {
       location: 'Miller Park',
@@ -37,9 +36,7 @@ let currentUser = {
     }
   ],
 
-=======
   gameHistory: []
->>>>>>> Stashed changes
 }
 
 // SettingsPage: SettingsPage;
