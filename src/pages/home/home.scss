@@ -10,4 +10,7 @@ page-home {
   .leaflet-popup-content {
     // text-align: center;
   }
+  .leaflet-popup-content-wrapper {
+    border-radius: 0px;
+  }
 }

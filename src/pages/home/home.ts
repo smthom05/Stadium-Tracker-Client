@@ -44,7 +44,8 @@ export class HomePage {
           let date = moment(location.nextEvent.date).format('MMM Do @ h:mmA')
           let marker: any = leaflet.marker([location.coordinates.lat, location.coordinates.lon])
             .bindPopup(
-              `<span class="text--bold">${location.name}</span>
+              `
+              <span class="text--bold">${location.name}</span>
               <br />
               <br />
               <span class="text--bold">Next game:</span>
