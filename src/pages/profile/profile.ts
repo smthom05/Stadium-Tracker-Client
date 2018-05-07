@@ -5,8 +5,6 @@ import axios from 'axios';
 import { LoginserviceProvider } from '../../providers/loginservice/loginservice';
 import { LoginPage } from '../login/login';
 
-
-
 let currentUser = {
   firstName: '',
   lastName: '',
