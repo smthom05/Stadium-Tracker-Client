@@ -55,7 +55,7 @@ incognito:boolean;
     public modalCtrl: ModalController,
     public navParams: NavParams,
     public navCtrl: NavController,
-    public loginservice: LoginserviceProvider
+    public loginService: LoginserviceProvider
   ) {
     this.firstName = navParams.get('firstName');
     this.lastName = navParams.get('lastName');
@@ -71,8 +71,8 @@ incognito:boolean;
   }
 
   ionViewDidLoad() {
-    // this.getUsers(currentUser);
-    console.log('our navparams', this.navParams);
+    console.log("Login service", this.loginService);
+    // console.log('our navparams', this.navParams);
   }
 
   goToSettingsPage() {

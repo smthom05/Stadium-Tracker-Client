@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
 import axios from 'axios';
+import cors from 'cors';
 import { LoginserviceProvider } from "../../providers/loginservice/loginservice";
 
 @IonicPage()
@@ -16,31 +17,15 @@ export class LoginPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    // console.log('ionViewDidLoad LoginPage');
   }
 
-  // loginGoogle() {
-  //   axios.get("http://localhost:3000/auth/google")
-  //     .then(res => {
-  //       console.log(res);
-  //       this.loginservice.login();
-  //       this.loginservice.userProfile = res.data;
-  //       console.log("login service log", this.loginservice);
-  //       this.navCtrl.push(ProfilePage, res.data);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err.message);
-  //       console.log(err.stack);
-  //     });
-  // }
-
   loginGoogle() {
-    axios.get("http://localhost:3000/users/5aedf8a81bcf9e07d46c0687")
-      .then(res => {
-        console.log(res);
+    axios.get("http://localhost:3000/users/5af07f9d6bd5cc294cb6e402")
+      .then((res) => {
         this.loginservice.login();
         this.loginservice.userProfile = res.data;
-        console.log("login service log", this.loginservice);
+        console.log("Login service", this.loginservice);
         this.navCtrl.push(ProfilePage, res.data);
       })
       .catch((err) => {

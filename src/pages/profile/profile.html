@@ -6,33 +6,35 @@
 
 <ion-content padding>
 
-  <!-- <div ngIf='loginservice.isLoggedIn; else loginTemplate'> -->
-  <div id="userName">{{fullName}}</div>
+  <!-- <div *ngIf='loginService.isLoggedIn; else loginTemplate'> -->
+    <div id="userName">{{fullName}}</div>
 
-  <div>
-    <ion-img id="userImage" src={{userImage}}></ion-img>
+    <div>
+      <ion-img id="userImage" src={{userImage}}></ion-img>
 
-    <ion-fab bottom right>
-      <button ion-fab (click)="goToSettingsPage()"><ion-icon name="settings"></ion-icon></button>
-    </ion-fab>
+      <ion-fab bottom right>
+        <button ion-fab (click)="goToSettingsPage()"><ion-icon name="settings"></ion-icon></button>
+      </ion-fab>
 
-    <ion-list>
-      <ion-item>
-        <button ion-button round block (click)="presentModal('PersonalStatsPage')"> Personal Stats </button>
-      </ion-item>
+      <ion-list>
+        <ion-item>
+          <button ion-button round block (click)="presentModal('PersonalStatsPage')"> Personal Stats </button>
+        </ion-item>
 
-      <ion-item>
-        <button ion-button round block (click)="presentModal('HistoryPage')"> History </button>
-      </ion-item>
+        <ion-item>
+          <button ion-button round block (click)="presentModal('HistoryPage')"> History </button>
+        </ion-item>
 
-      <ion-item>
-        <button ion-button round block (click)="presentModal('LocationStatsPage')"> Ballpark Stats </button>
-      </ion-item>
-    </ion-list>
-    <button ion-button round block (click)="goToLoginPage()"> Please Login </button>
-  </div>
+        <ion-item>
+          <button ion-button round block (click)="presentModal('LocationStatsPage')"> Ballpark Stats </button>
+        </ion-item>
+      </ion-list>
 
-  <!-- <ng-template #loginTemplate>
-
-  </ng-template> -->
+    </div>
+  <!-- </div>
+  <ng-template #loginTemplate> -->
+    <div class="login-button">
+      <button ion-button round block (click)="goToLoginPage()"> Please Login </button>
+    </div>
+  <!-- </ng-template> -->
 </ion-content>
