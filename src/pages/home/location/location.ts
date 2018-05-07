@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { CheckInPage } from './check-in/check-in';
-import moment  from 'moment';
+import moment from 'moment';
 
 @IonicPage()
 @Component({

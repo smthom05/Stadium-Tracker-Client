@@ -2,6 +2,7 @@ import { Component, AfterViewInit, ViewChild, NgZone, ElementRef } from '@angula
 import { NavController, Platform, ViewController } from 'ionic-angular';
 import { LocationPage } from './location/location';
 import leaflet from 'leaflet';
+import moment from 'moment';
 import axios from 'axios';
 
 
@@ -40,9 +41,18 @@ export class HomePage {
         console.log('Map loaded, populating locations...');
         console.log('Sample location', this.locations[0]);
         this.locations.forEach((location, index) => {
+          let date = moment(location.nextEvent.date).format('MMM Do @ h:mmA')
           let marker: any = leaflet.marker([location.coordinates.lat, location.coordinates.lon])
             .bindPopup(
-              `${location.name}`
+              `<span class="text--bold">${location.name}</span>
+              <br />
+              <br />
+              <span class="text--bold">Next game:</span>
+              <br />
+              ${date}
+              <br />
+              ${location.team} vs. ${location.nextEvent.opponentName}
+              `
             )
             .openPopup()
             .on('popupopen', (popup) => {
