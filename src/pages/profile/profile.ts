@@ -5,6 +5,11 @@ import axios from 'axios';
 import { LoginserviceProvider } from '../../providers/loginservice/loginservice';
 import { LoginPage } from '../login/login';
 
+<<<<<<< Updated upstream
+=======
+
+
+>>>>>>> Stashed changes
 let currentUser = {
   firstName: '',
   lastName: '',
@@ -15,6 +20,7 @@ let currentUser = {
   settings: {
     incognito: false
   },
+<<<<<<< Updated upstream
   gameHistory: [
     {
       location: 'Miller Park',
@@ -33,6 +39,9 @@ let currentUser = {
       moreInfo: 'Drank beer, ate food'
     }
   ],
+=======
+  gameHistory: []
+>>>>>>> Stashed changes
 }
 
 // SettingsPage: SettingsPage;
@@ -93,13 +102,25 @@ incognito:boolean;
     this.navCtrl.push(LoginPage);
   }
 
-  addFakeUser(user) {
-    axios.post("http://localhost:3000/users", user)
-      .then(res => {
-        return res.data;
-      })
-      .catch(err => {
-        console.log(err.message, err.stack);
-      })
-  }
+  // getUsers() {
+  //   axios.get("http://localhost:3000/users/5aeb732159a562ae2f5d4eba")
+  //   .then((res) => {
+  //     this.currentUser = res.data;
+  //     return this.currentUser;
+  //   })
+  //   .catch((err) => {
+  //     console.log(err.message);
+  //     console.log(err.stack);
+  //   });
+  // };
+  //
+  // addFakeUser(user) {
+  //   axios.post("http://localhost:3000/users", user)
+  //     .then(res => {
+  //       return res.data;
+  //     })
+  //     .catch(err => {
+  //       console.log(err.message, err.stack);
+  //     })
+  // }
 };
