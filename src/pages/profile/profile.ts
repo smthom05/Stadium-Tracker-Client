@@ -18,9 +18,9 @@ export class ProfilePage {
   fullName:string;
   userImage:string;
   incognito:boolean;
-  isLoggedIn:boolean;
-  userProfile:any;
   loginStorage:any = window.localStorage;
+  isLoggedIn:boolean = false;
+  userProfile:any;
 
   constructor(
     public modalCtrl: ModalController,

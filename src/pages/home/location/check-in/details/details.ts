@@ -3,12 +3,6 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProfilePage } from '../../../../profile/profile';
 import axios from 'axios';
 
-/**
- * Generated class for the DetailsPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
 
 @IonicPage()
 @Component({
@@ -16,15 +10,16 @@ import axios from 'axios';
   templateUrl: 'details.html',
 })
 export class DetailsPage {
-  checkinId:string;
-  locationName:string;
-  date:string;
-  photo:string;
-  moreInfo:string;
-  homeTeam:string;
-  homeTeamScore:number;
-  awayTeam:string;
-  awayTeamScore:number;
+  checkinId: string;
+  locationName: string;
+  date: string;
+  photo: string;
+  moreInfo: string;
+  homeTeam: string;
+  homeTeamScore: number;
+  awayTeam: string;
+  awayTeamScore: number;
+  gameHistory: any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.checkinId = navParams.get('checkinId');
@@ -55,16 +50,29 @@ export class DetailsPage {
       photo: this.photo,
       moreInfo: this.moreInfo
     }
-    
-    axios.post('http://localhost:3000/users/5af07f9d6bd5cc294cb6e402/update/history/' + this.checkinId, updatedInfo)
+
+    axios.get("http://localhost:3000/users/5af07f9d6bd5cc294cb6e402/history")
       .then((res) => {
-        console.log('Returned info', res.data);
-        this.navCtrl.push(ProfilePage);
+        this.gameHistory = res.data;
+
+        if (this.gameHistory.length > 1) {
+         this.gameHistory.splice(this.gameHistory.length-1,1,updatedInfo);
+        } else {
+          this.gameHistory = [updatedInfo];
+        }
+        axios.post('http://localhost:3000/users/5af07f9d6bd5cc294cb6e402/update/history/' + this.checkinId, this.gameHistory)
+          .then((res) => {
+            console.log('Returned info', res.data);
+            this.navCtrl.push(ProfilePage);
+          })
+          .catch((err) => {
+            console.log(err.message, err.stack);
+          }
+          );
       })
       .catch((err) => {
         console.log(err.message, err.stack);
       }
-    );
-
+      );
   }
 }

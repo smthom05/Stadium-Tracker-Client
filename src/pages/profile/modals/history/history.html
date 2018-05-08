@@ -23,7 +23,7 @@
           <br />
           On <span class="text--bold">{{game.date}}</span>
         </div>
-        <div class="slide-subtitle">
+        <div class="slide-subtitle" *ngIf="game.teams.length > 0">
           <span class="text--bold">{{game.teams[0].name}}</span> vs. <span class="text--bold">{{game.teams[1].name}}</span>
         </div>
         <div class="slide-more">
