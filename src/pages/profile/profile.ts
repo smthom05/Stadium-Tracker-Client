@@ -5,23 +5,6 @@ import axios from 'axios';
 import { LoginserviceProvider } from '../../providers/loginservice/loginservice';
 import { LoginPage } from '../login/login';
 
-
-
-let currentUser = {
-  firstName: '',
-  lastName: '',
-  fullName: '',
-  userImage: '',
-  __v: 0,
-  friends: [],
-  settings: {
-    incognito: false
-  },
-  gameHistory: []
-}
-
-=======
->>>>>>> e56f16bf868e4f32223f7a57bb7cf640e81240a7
 // SettingsPage: SettingsPage;
 
 @Component({
