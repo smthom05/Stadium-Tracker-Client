@@ -6,7 +6,7 @@
 
 <ion-content padding>
 
-  <!-- <div *ngIf='loginService.isLoggedIn; else loginTemplate'> -->
+  <div *ngIf="isLoggedIn; else loginTemplate">
     <div id="userName">{{fullName}}</div>
 
     <div>
@@ -31,10 +31,10 @@
       </ion-list>
 
     </div>
-  <!-- </div>
-  <ng-template #loginTemplate> -->
+  </div>
+  <ng-template #loginTemplate>
     <div class="login-button">
       <button ion-button round block (click)="goToLoginPage()"> Please Login </button>
     </div>
-  <!-- </ng-template> -->
+  </ng-template>
 </ion-content>

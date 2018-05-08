@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ProfilePage } from '../profile/profile';
-import axios from 'axios';
-import cors from 'cors';
 import { LoginserviceProvider } from "../../providers/loginservice/loginservice";
+import axios from 'axios';
 
 @IonicPage()
 @Component({
@@ -13,7 +12,11 @@ import { LoginserviceProvider } from "../../providers/loginservice/loginservice"
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public loginservice: LoginserviceProvider) {
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public loginservice: LoginserviceProvider
+  ) {
   }
 
   ionViewDidLoad() {
@@ -21,13 +24,18 @@ export class LoginPage {
   }
 
   loginGoogle() {
+    let loginStorage = window.localStorage;
     axios.get("http://localhost:3000/users/5af07f9d6bd5cc294cb6e402")
       .then((res) => {
         console.log(res);
         this.loginservice.login();
-        this.loginservice.userProfile = res.data;
+        loginStorage.setItem('isLoggedIn', JSON.stringify(this.loginservice.isLoggedIn));
+        console.log('Local: isLoggedIn', JSON.parse(loginStorage.getItem('isLoggedIn')));
+        loginStorage.setItem('userProfile', JSON.stringify(res.data));
+        console.log('Local: userProfile', JSON.parse(loginStorage.getItem('userProfile')));
+        this.loginservice.userProfile = JSON.parse(loginStorage.getItem('userProfile'));
         console.log("Login service", this.loginservice);
-        this.navCtrl.push(ProfilePage, res.data);
+        this.navCtrl.push(ProfilePage);
       })
       .catch((err) => {
         console.log(err.message);
