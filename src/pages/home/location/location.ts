@@ -9,16 +9,15 @@ import moment  from 'moment';
   templateUrl: 'location.html',
 })
 export class LocationPage {
-
-locationPhoto:string;
-name:string;
-homeTeam:string;
-nextEvent:any;
-facts:any;
-recommendations:any;
-opponentName:string;
-ticketLink:string;
-date:string;
+  locationPhoto:string;
+  name:string;
+  homeTeam:string;
+  nextEvent:any;
+  facts:any;
+  recommendations:any;
+  opponentName:string;
+  ticketLink:string;
+  date:string;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.locationPhoto = navParams.get('locationPhoto');
@@ -37,7 +36,7 @@ date:string;
   }
 
   goToCheckInPage() {
-    this.navCtrl.push(CheckInPage);
+    this.navCtrl.push(CheckInPage, this.navParams);
   }
 
 }

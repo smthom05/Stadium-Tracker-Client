@@ -8,6 +8,7 @@ import axios from 'axios';
   templateUrl: 'activity-feed.html',
 })
 export class ActivityFeedPage {
+  hasActivities: boolean = false;
   activities: any;
   constructor(
     public navParams: NavParams,
@@ -24,7 +25,11 @@ export class ActivityFeedPage {
   getPublicActivity() {
     axios.get('http://localhost:3000/activity')
       .then((res) => {
-        this.activities = res.data;
+        if (res.data) {
+          this.activities = res.data;
+          this.hasActivities = true;
+        }
+
         console.log('Recent activities', this.activities);
       })
       .catch((err) => {
