@@ -23,6 +23,7 @@ export class LoginPage {
   loginGoogle() {
     axios.get("http://localhost:3000/users/5af07f9d6bd5cc294cb6e402")
       .then((res) => {
+        console.log(res);
         this.loginservice.login();
         this.loginservice.userProfile = res.data;
         console.log("Login service", this.loginservice);

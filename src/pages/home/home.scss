@@ -1,8 +1,4 @@
 page-home {
-  ion-list {
-    margin: 0 !important;
-  }
-
   #map {
     height: 100%;
     width: 100%;
@@ -10,5 +6,11 @@ page-home {
     justify-content: center;
     align-items: center;
   }
-  
+
+  .leaflet-popup-content {
+    // text-align: center;
+  }
+  .leaflet-popup-content-wrapper {
+    border-radius: 0px;
+  }
 }
