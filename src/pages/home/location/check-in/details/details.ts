@@ -56,6 +56,16 @@ export class DetailsPage {
       moreInfo: this.moreInfo
     }
     console.log('updatedInfo', updatedInfo);
+    axios.get('http://localhost:3000/users/5af07f9d6bd5cc294cb6e402/update/history/' + this.checkinId)
+      .then((res) => {
+        console.log('Returned info', res.data);
+      })
+      .catch((err) => {
+        console.log(err.message, err.stack);
+      }
+  );
+
+
     axios.post('http://localhost:3000/users/5af07f9d6bd5cc294cb6e402/update/history/' + this.checkinId, updatedInfo)
       .then((res) => {
         console.log('Returned info', res.data);
