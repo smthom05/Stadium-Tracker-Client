@@ -11,7 +11,7 @@ import axios from 'axios';
   providers: [LoginserviceProvider]
 })
 export class LoginPage {
-
+  loginStorage:any = window.localStorage;
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -24,16 +24,15 @@ export class LoginPage {
   }
 
   loginGoogle() {
-    let loginStorage = window.localStorage;
     axios.get("http://localhost:3000/users/5af07f9d6bd5cc294cb6e402")
       .then((res) => {
         console.log(res);
         this.loginservice.login();
         loginStorage.setItem('isLoggedIn', JSON.stringify(this.loginservice.isLoggedIn));
-        console.log('Local: isLoggedIn', JSON.parse(loginStorage.getItem('isLoggedIn')));
+        console.log('Local: isLoggedIn', JSON.parse(this.loginStorage.getItem('isLoggedIn')));
         loginStorage.setItem('userProfile', JSON.stringify(res.data));
-        console.log('Local: userProfile', JSON.parse(loginStorage.getItem('userProfile')));
-        this.loginservice.userProfile = JSON.parse(loginStorage.getItem('userProfile'));
+        console.log('Local: userProfile', JSON.parse(this.loginStorage.getItem('userProfile')));
+        this.loginservice.userProfile = JSON.parse(this.loginStorage.getItem('userProfile'));
         console.log("Login service", this.loginservice);
         this.navCtrl.push(ProfilePage);
       })
