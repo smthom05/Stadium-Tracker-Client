@@ -5,38 +5,6 @@ import axios from 'axios';
 import { LoginserviceProvider } from '../../providers/loginservice/loginservice';
 import { LoginPage } from '../login/login';
 
-
-
-let currentUser = {
-  firstName: '',
-  lastName: '',
-  fullName: '',
-  userImage: '',
-  __v: 0,
-  friends: [],
-  settings: {
-    incognito: false
-  },
-  gameHistory: [
-    {
-      location: 'Miller Park',
-      photo: 'https://chairnerd.global.ssl.fastly.net/images/performers-landscape/milwaukee-brewers-7c4ba0/15/huge.jpg',
-      teams: [
-        {
-          name: 'Brewers',
-          score: 5
-        },
-        {
-          name: 'Rockies',
-          score: 2
-        }
-      ],
-      date: 'Sometime this season',
-      moreInfo: 'Drank beer, ate food'
-    }
-  ],
-}
-
 // SettingsPage: SettingsPage;
 
 @Component({
@@ -45,11 +13,14 @@ let currentUser = {
   providers: [LoginserviceProvider]
 })
 export class ProfilePage {
-firstName:string;
-lastName:string;
-fullName:string;
-userImage:string;
-incognito:boolean;
+  firstName:string;
+  lastName:string;
+  fullName:string;
+  userImage:string;
+  incognito:boolean;
+  isLoggedIn:boolean;
+  userProfile:any;
+  loginStorage:any = window.localStorage;
 
   constructor(
     public modalCtrl: ModalController,
@@ -57,22 +28,28 @@ incognito:boolean;
     public navCtrl: NavController,
     public loginService: LoginserviceProvider
   ) {
-    this.firstName = navParams.get('firstName');
-    this.lastName = navParams.get('lastName');
-    this.fullName = navParams.get('fullName');
-    this.userImage = navParams.get('userImage');
+
   };
 
-  ngAfterViewInit() {
-    // this.getLocationImage(currentUser.favoriteTeam);
-
-    // Generate example user
-
-  }
-
   ionViewDidLoad() {
-    console.log("Login service", this.loginService);
-    // console.log('our navparams', this.navParams);
+    if (JSON.parse(this.loginStorage.getItem('isLoggedIn'))) {
+      this.isLoggedIn = JSON.parse(this.loginStorage.getItem('isLoggedIn'));
+      this.userProfile = JSON.parse(this.loginStorage.getItem('userProfile'));
+      this.firstName = this.userProfile.firstName;
+      this.lastName = this.userProfile.lastName;
+      this.fullName = this.userProfile.fullName;
+      this.userImage = this.userProfile.userImage;
+    } else {
+      this.isLoggedIn = false;
+      this.userProfile = {};
+      this.firstName = "";
+      this.lastName = "";
+      this.fullName = "";
+      this.userImage = "";
+    }
+    // console.log('Local: isLoggedIn', JSON.parse(this.loginStorage.getItem('isLoggedIn')));
+    // console.log('Local: userProfile', JSON.parse(this.loginStorage.getItem('userProfile')));
+
   }
 
   goToSettingsPage() {
@@ -92,16 +69,7 @@ incognito:boolean;
     //   })
   }
   goToLoginPage() {
-    this.navCtrl.push(LoginPage);
+    this.navCtrl.setRoot(LoginPage);
   }
 
-  addFakeUser(user) {
-    axios.post("http://localhost:3000/users", user)
-      .then(res => {
-        return res.data;
-      })
-      .catch(err => {
-        console.log(err.message, err.stack);
-      })
-  }
 };

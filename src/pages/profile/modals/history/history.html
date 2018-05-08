@@ -15,16 +15,22 @@
 
   <ion-slides pager>
 
-    <ion-slide style="background-color: green">
-      <h2>Game 1 </h2>
-    </ion-slide>
+    <ion-slide *ngFor='let game of gameHistory; index as i' class="slide">
+      <img class="slide-image" src={{game.photo}}/>
+      <div class="slide-info">
+        <div class="slide-title">
+          @ <span class="text--bold">{{game.location}}</span>
+          <br />
+          On <span class="text--bold">{{game.date}}</span>
+        </div>
+        <div class="slide-subtitle">
+          <span class="text--bold">{{game.teams[0].name}}</span> vs. <span class="text--bold">{{game.teams[1].name}}</span>
+        </div>
+        <div class="slide-more">
+          {{game.moreInfo}}
+        </div>
+      </div>
 
-    <ion-slide style="background-color: blue">
-      <h2>Game 2 </h2>
-    </ion-slide>
-
-    <ion-slide style="background-color: red">
-      <h2>Game 3</h2>
     </ion-slide>
 
   </ion-slides>

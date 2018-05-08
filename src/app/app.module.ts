@@ -58,7 +58,6 @@ import { LoginserviceProvider } from '../providers/loginservice/loginservice';
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     LoginserviceProvider
-
   ]
 })
 export class AppModule {}

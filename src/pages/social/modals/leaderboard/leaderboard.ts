@@ -26,7 +26,6 @@ export class LeaderboardPage {
     axios.get('http://localhost:3000/leaderboard/baseball')
       .then((res) => {
         this.ranks = res.data;
-        console.log('Rankings', this.ranks);
       })
       .catch((err) => {
         console.log(err.message);

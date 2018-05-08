@@ -18,19 +18,13 @@ export class ActivityFeedPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ActivityFeedPage');
     this.getPublicActivity();
   }
 
   getPublicActivity() {
     axios.get('http://localhost:3000/activity')
       .then((res) => {
-        if (res.data) {
-          this.activities = res.data;
-          this.hasActivities = true;
-        }
-
-        console.log('Recent activities', this.activities);
+        this.activities = res.data;
       })
       .catch((err) => {
         console.log(err.message);

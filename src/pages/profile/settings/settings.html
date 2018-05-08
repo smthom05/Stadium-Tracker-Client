@@ -17,25 +17,30 @@
 <ion-content>
 
   <div [ngSwitch]="userSettings">
-    <ion-list *ngSwitchCase="'sessionStatus'">
-      <ion-item>
-        <ion-icon name='logo-google'></ion-icon>
-        <h2>Google</h2>
-      </ion-item>
-      <ion-item>
-        <ion-icon name='logo-facebook'></ion-icon>
-        <h2>Facebook</h2>
-      </ion-item>
-      <ion-item>
-        <ion-icon name='logo-twitter'></ion-icon>
-        <h2>Twitter</h2>
-      </ion-item>
-    </ion-list>
+    <div *ngSwitchCase="'sessionStatus'" class="logout-button">
+        <button ion-button round block (click)="signout()"> Sign Out </button>
 
-    <ion-list *ngSwitchCase="'privacy'">
-      <ion-item>
-        <ion-label>Go Incognito</ion-label>
-        <ion-checkbox [(ngModel)]='incognito' (click)="goIncognito()"></ion-checkbox>
-      </ion-item>
-    </ion-list>
+        <!-- <ion-list>
+          <ion-item>
+            <ion-icon name='logo-google'></ion-icon>
+            <h2>Google</h2>
+          </ion-item>
+          <ion-item>
+            <ion-icon name='logo-facebook'></ion-icon>
+            <h2>Facebook</h2>
+          </ion-item>
+          <ion-item>
+            <ion-icon name='logo-twitter'></ion-icon>
+            <h2>Twitter</h2>
+          </ion-item>
+        </ion-list> -->
+    </div>
+    <div *ngSwitchCase="'privacy'">
+      <ion-list>
+        <ion-item>
+          <ion-label>Go Incognito</ion-label>
+          <ion-checkbox [(ngModel)]='incognito' (click)="goIncognito()"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+    </div>
   </div>
