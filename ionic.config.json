@@ -1,8 +1,14 @@
 {
-  "name": "ionic-stadium-tracker",
+  "name": "Stadium-Tracker-Client",
   "app_id": "",
   "type": "ionic-angular",
   "integrations": {
     "cordova": {}
-  }
+  },
+  "proxies": [
+    {
+      "path": "/auth",
+      "proxyUrl": "http://localhost:3000/auth"
+    }
+  ]
 }

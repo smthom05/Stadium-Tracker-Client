@@ -38,8 +38,8 @@ export class HomePage {
     let markerGroup = leaflet.featureGroup();
     this.map = leaflet.map("map")
       .on('load', (e) => {
-        console.log('Map loaded, populating locations...');
-        console.log('Sample location', this.locations[0]);
+        // console.log('Map loaded, populating locations...');
+        // console.log('Sample location', this.locations[0]);
         this.locations.forEach((location, index) => {
           let date = moment(location.nextEvent.date).format('MMM Do @ h:mmA')
           let marker: any = leaflet.marker([location.coordinates.lat, location.coordinates.lon])

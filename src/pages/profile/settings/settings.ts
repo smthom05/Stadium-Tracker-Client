@@ -11,8 +11,16 @@ import { ProfilePage } from '../profile';
 })
 export class SettingsPage {
   incognito:boolean;
+  userSettings: string = 'sessionStatus';
+  loginStorage:any = window.localStorage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
+  }
+
+  signout() {
+    this.loginStorage.removeItem('isLoggedIn');
+    this.loginStorage.removeItem('userProfile');
+    this.navCtrl.setRoot(ProfilePage);
   }
 
   ionViewDidLoad() {
@@ -21,14 +29,14 @@ export class SettingsPage {
   }
 
   getIncognitoStatus() {
-    axios.get("http://localhost:3000/users/5aedf8a81bcf9e07d46c0687")
+    axios.get("http://localhost:3000/users/5af07f9d6bd5cc294cb6e402")
     .then(res => {
       this.incognito = res.data.settings.incognito;
     })
   }
 
   goIncognito() {
-    axios.post("http://localhost:3000/users/5aedf8a81bcf9e07d46c0687/update", {
+    axios.post("http://localhost:3000/users/5af07f9d6bd5cc294cb6e402/update", {
       settings: {
         incognito: this.incognito
       }
