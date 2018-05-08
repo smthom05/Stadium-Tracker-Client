@@ -28,9 +28,9 @@ export class LoginPage {
       .then((res) => {
         console.log(res);
         this.loginservice.login();
-        loginStorage.setItem('isLoggedIn', JSON.stringify(this.loginservice.isLoggedIn));
+        this.loginStorage.setItem('isLoggedIn', JSON.stringify(this.loginservice.isLoggedIn));
         console.log('Local: isLoggedIn', JSON.parse(this.loginStorage.getItem('isLoggedIn')));
-        loginStorage.setItem('userProfile', JSON.stringify(res.data));
+        this.loginStorage.setItem('userProfile', JSON.stringify(res.data));
         console.log('Local: userProfile', JSON.parse(this.loginStorage.getItem('userProfile')));
         this.loginservice.userProfile = JSON.parse(this.loginStorage.getItem('userProfile'));
         console.log("Login service", this.loginservice);
