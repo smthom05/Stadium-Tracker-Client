@@ -26,15 +26,15 @@ export class LoginPage {
   loginGoogle() {
     axios.get("http://localhost:3000/users/5af07f9d6bd5cc294cb6e402")
       .then((res) => {
-        console.log(res);
+        // console.log(res);
         this.loginservice.login();
         this.loginStorage.setItem('isLoggedIn', JSON.stringify(this.loginservice.isLoggedIn));
-        console.log('Local: isLoggedIn', JSON.parse(this.loginStorage.getItem('isLoggedIn')));
+        // console.log('Local: isLoggedIn', JSON.parse(this.loginStorage.getItem('isLoggedIn')));
         this.loginStorage.setItem('userProfile', JSON.stringify(res.data));
-        console.log('Local: userProfile', JSON.parse(this.loginStorage.getItem('userProfile')));
+        // console.log('Local: userProfile', JSON.parse(this.loginStorage.getItem('userProfile')));
         this.loginservice.userProfile = JSON.parse(this.loginStorage.getItem('userProfile'));
-        console.log("Login service", this.loginservice);
-        this.navCtrl.push(ProfilePage);
+        // console.log("Login service", this.loginservice);
+        this.navCtrl.setRoot(ProfilePage);
       })
       .catch((err) => {
         console.log(err.message);

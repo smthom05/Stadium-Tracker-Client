@@ -25,7 +25,6 @@ export class HistoryPage {
     axios.get('http://localhost:3000/users/5aede8f882699f1572c7948f/history')
       .then((res) => {
         this.gameHistory = res.data;
-        console.log('Game history', this.gameHistory);
       })
       .catch((err) => {
         console.log(err.message);

@@ -20,8 +20,7 @@ export class SettingsPage {
   signout() {
     this.loginStorage.removeItem('isLoggedIn');
     this.loginStorage.removeItem('userProfile');
-    this.navCtrl.push(ProfilePage);
-
+    this.navCtrl.setRoot(ProfilePage);
   }
 
   ionViewDidLoad() {

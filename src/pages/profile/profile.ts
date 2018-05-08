@@ -47,8 +47,8 @@ export class ProfilePage {
       this.fullName = "";
       this.userImage = "";
     }
-    console.log('Local: isLoggedIn', JSON.parse(this.loginStorage.getItem('isLoggedIn')));
-    console.log('Local: userProfile', JSON.parse(this.loginStorage.getItem('userProfile')));
+    // console.log('Local: isLoggedIn', JSON.parse(this.loginStorage.getItem('isLoggedIn')));
+    // console.log('Local: userProfile', JSON.parse(this.loginStorage.getItem('userProfile')));
 
   }
 
@@ -69,7 +69,7 @@ export class ProfilePage {
     //   })
   }
   goToLoginPage() {
-    this.navCtrl.push(LoginPage);
+    this.navCtrl.setRoot(LoginPage);
   }
 
 };
