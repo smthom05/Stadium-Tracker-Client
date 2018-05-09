@@ -8,6 +8,7 @@ import axios from 'axios';
   templateUrl: 'activity-feed.html',
 })
 export class ActivityFeedPage {
+  hasActivities: boolean = false;
   activities: any;
   constructor(
     public navParams: NavParams,

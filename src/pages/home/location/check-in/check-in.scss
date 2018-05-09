@@ -1,3 +1,16 @@
 page-check-in {
+  .locationPhoto {
+    height: 60vw;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 
+    // box-shadow: inset 0px -85px 30px -10px rgba(255,255,255,.75);
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
 }

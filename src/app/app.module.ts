@@ -9,6 +9,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { LocationPage } from '../pages/home/location/location';
 import { CheckInPage } from '../pages/home/location/check-in/check-in';
+import { DetailsPage } from '../pages/home/location/check-in/details/details';
 import { SettingsPage } from '../pages/profile/settings/settings';
 import { AddFriendPage } from '../pages/social/add-friend/add-friend';
 import { LoginPage } from '../pages/login/login';
@@ -29,6 +30,7 @@ import { LoginserviceProvider } from '../providers/loginservice/loginservice';
     CheckInPage,
     SettingsPage,
     AddFriendPage,
+    DetailsPage,
     LoginPage
   ],
   imports: [
@@ -46,6 +48,7 @@ import { LoginserviceProvider } from '../providers/loginservice/loginservice';
     CheckInPage,
     SettingsPage,
     AddFriendPage,
+    DetailsPage,
     LoginPage
   ],
   providers: [
